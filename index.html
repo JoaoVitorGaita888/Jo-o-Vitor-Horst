@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Gaitas Cifras Pro - Cifras e Baixarias de Acordeão</title>
+  <title>Gaitas Cifras Pro - Cifras, Álbuns e Baixarias de Acordeão</title>
   
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -124,9 +124,9 @@
         <div>
           <div class="flex items-center gap-2">
             <h1 class="font-cinzel text-xl sm:text-2xl font-black text-gaucho-cream tracking-wide">GAITAS CIFRAS <span class="text-gaucho-gold">PRO</span></h1>
-            <span class="text-[10px] bg-gaucho-gold/20 text-gaucho-gold border border-gaucho-gold/40 font-mono px-1.5 py-0.5 rounded font-bold uppercase">v2.5</span>
+            <span class="text-[10px] bg-gaucho-gold/20 text-gaucho-gold border border-gaucho-gold/40 font-mono px-1.5 py-0.5 rounded font-bold uppercase">v3.0</span>
           </div>
-          <p class="text-xs text-gaucho-creamMuted hidden sm:block">A maior biblioteca de acordeão gaúcho e do Brasil</p>
+          <p class="text-xs text-gaucho-creamMuted hidden sm:block">A Maior Acervo Nativista e Tradicionalista de Acordeão</p>
         </div>
       </div>
 
@@ -146,7 +146,7 @@
         </div>
 
         <!-- Metronome Modal Button -->
-        <button onclick="app.toggleMetronomeModal()" class="relative bg-gaucho-card hover:bg-gaucho-wood border border-gaucho-border p-2.5 rounded-xl text-gaucho-gold hover:text-white transition-all shadow-md" title="Metrônomo">
+        <button onclick="app.toggleMetronomeModal()" class="relative bg-gaucho-card hover:bg-gaucho-wood border border-gaucho-border p-2.5 rounded-xl text-gaucho-gold hover:text-white transition-all shadow-md" title="Metrônomo Gaúcho">
           <i data-lucide="timer" class="w-5 h-5"></i>
           <span id="metronome-badge" class="hidden absolute -top-1 -right-1 w-3 h-3 bg-gaucho-gold rounded-full animate-ping"></span>
         </button>
@@ -173,12 +173,15 @@
     <section id="catalog-controls" class="space-y-4 no-print">
       
       <div class="relative bg-gradient-to-r from-gaucho-wineDark via-gaucho-wood to-gaucho-card p-6 rounded-2xl border border-gaucho-gold/30 shadow-2xl overflow-hidden">
-        <div class="relative z-10 max-w-3xl space-y-3">
+        <div class="relative z-10 max-w-4xl space-y-3">
+          <div class="flex items-center gap-2 text-gaucho-gold text-xs font-bold uppercase tracking-wider">
+            <i data-lucide="disc" class="w-4 h-4"></i> Músicas Gaúchas, Nacionais e Internacionais em Cifras Originais
+          </div>
           <h2 class="font-cinzel text-2xl sm:text-3xl font-bold text-gaucho-gold">
-            Aprenda Músicas e Baixarias no Acordeão
+            Cifras de Acordeão com Álbum, Baixarias e Videoaulas
           </h2>
           <p class="text-xs sm:text-sm text-gaucho-creamMuted leading-relaxed">
-            Acordes originais, digitação para mão direita (piano e gaita ponto de 8 baixos), acompanhamento de baixaria Stradella e metrônomo gaúcho.
+            Aprenda clássicos de <strong>Os Monarcas, Porca Véia, Grupo Cordiona, Os Serranos, Os Caciques, Grupo Rodeio</strong> e mais. Cifras com indicação exata do álbum original, transposição de tom e diagrama completo de baixos Stradella.
           </p>
 
           <!-- Search Input -->
@@ -188,7 +191,7 @@
               type="text" 
               id="search-input" 
               oninput="app.filterSongs()" 
-              placeholder="Buscar por música, artista ou ritmo (ex: Baitaca, Merceditas, Vaneira, Chamamé)..." 
+              placeholder="Buscar por música, artista, álbum ou ritmo (ex: Os Monarcas, Porca Véia, Sonhando na Vaneira, Chamamé)..." 
               class="w-full bg-gaucho-charcoal/90 border-2 border-gaucho-border focus:border-gaucho-gold rounded-xl pl-12 pr-10 py-3.5 text-sm sm:text-base text-gaucho-cream placeholder-gaucho-creamMuted outline-none shadow-inner transition-all"
             >
             <button onclick="app.clearSearch()" id="clear-search-btn" class="hidden absolute right-3 top-1/2 -translate-y-1/2 p-1 text-gaucho-creamMuted hover:text-white">
@@ -198,22 +201,27 @@
         </div>
       </div>
 
-      <!-- Rhythm Category Pills -->
-      <div class="flex items-center gap-2 overflow-x-auto pb-2">
+      <div class="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-thin">
         <button onclick="app.setCategory('all')" id="cat-all" class="cat-pill bg-gaucho-gold text-gaucho-wineDark font-bold px-4 py-2 rounded-xl text-xs whitespace-nowrap shadow transition-all">
           Todas
         </button>
-        <button onclick="app.setCategory('gaucha')" id="cat-gaucha" class="cat-pill bg-gaucho-card hover:bg-gaucho-wood border border-gaucho-border text-gaucho-cream px-4 py-2 rounded-xl text-xs font-medium whitespace-nowrap transition-all">
-          🚩 Gaúchas & Nativistas
+        <button onclick="app.setCategory('monarcas')" id="cat-monarcas" class="cat-pill bg-gaucho-card hover:bg-gaucho-wood border border-gaucho-border text-gaucho-cream px-4 py-2 rounded-xl text-xs font-medium whitespace-nowrap transition-all">
+          👑 Os Monarcas
+        </button>
+        <button onclick="app.setCategory('porcaveia')" id="cat-porcaveia" class="cat-pill bg-gaucho-card hover:bg-gaucho-wood border border-gaucho-border text-gaucho-cream px-4 py-2 rounded-xl text-xs font-medium whitespace-nowrap transition-all">
+          🪗 Porca Véia & Cordiona
+        </button>
+        <button onclick="app.setCategory('serranos')" id="cat-serranos" class="cat-pill bg-gaucho-card hover:bg-gaucho-wood border border-gaucho-border text-gaucho-cream px-4 py-2 rounded-xl text-xs font-medium whitespace-nowrap transition-all">
+          🚩 Os Serranos
+        </button>
+        <button onclick="app.setCategory('rodeio')" id="cat-rodeio" class="cat-pill bg-gaucho-card hover:bg-gaucho-wood border border-gaucho-border text-gaucho-cream px-4 py-2 rounded-xl text-xs font-medium whitespace-nowrap transition-all">
+          🐎 Grupo Rodeio & Caciques
         </button>
         <button onclick="app.setCategory('vaneira')" id="cat-vaneira" class="cat-pill bg-gaucho-card hover:bg-gaucho-wood border border-gaucho-border text-gaucho-cream px-4 py-2 rounded-xl text-xs font-medium whitespace-nowrap transition-all">
-          🪗 Vaneira / Vaneirão
+          💃 Vaneirão
         </button>
         <button onclick="app.setCategory('chamame')" id="cat-chamame" class="cat-pill bg-gaucho-card hover:bg-gaucho-wood border border-gaucho-border text-gaucho-cream px-4 py-2 rounded-xl text-xs font-medium whitespace-nowrap transition-all">
-          🎶 Chamamé
-        </button>
-        <button onclick="app.setCategory('milonga')" id="cat-milonga" class="cat-pill bg-gaucho-card hover:bg-gaucho-wood border border-gaucho-border text-gaucho-cream px-4 py-2 rounded-xl text-xs font-medium whitespace-nowrap transition-all">
-          🎸 Milonga & Xote
+          🎶 Chamamé & Milonga
         </button>
         <button onclick="app.setCategory('nacional')" id="cat-nacional" class="cat-pill bg-gaucho-card hover:bg-gaucho-wood border border-gaucho-border text-gaucho-cream px-4 py-2 rounded-xl text-xs font-medium whitespace-nowrap transition-all">
           🇧🇷 Forró / Sertanejo
@@ -229,9 +237,10 @@
     </section>
 
     <section id="song-grid-view" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-      <!-- Cards rendered dynamically via JavaScript -->
+      <!-- Song cards dynamically rendered via JavaScript -->
     </section>
 
+    <!-- CIFRA READER VIEW -->
     <section id="cifra-reader-view" class="hidden flex flex-col lg:flex-row gap-6">
       
       <!-- MAIN CIFRA CONTENT PANEL (LEFT/CENTER) -->
@@ -242,13 +251,17 @@
           <div class="flex flex-wrap items-start justify-between gap-4">
             <div>
               <button onclick="app.resetToHome()" class="text-xs font-semibold text-gaucho-gold hover:underline flex items-center gap-1 mb-2 no-print">
-                <i data-lucide="arrow-left" class="w-3.5 h-3.5"></i> Voltar ao Catálogo
+                <i data-lucide="arrow-left" class="w-3.5 h-3.5"></i> Voltar ao Catálogo de Músicas
               </button>
               <h1 id="reader-title" class="font-cinzel text-2xl sm:text-4xl font-extrabold text-gaucho-cream">
-                Do Fundo da Grotinha
+                Sonhando na Vaneira
               </h1>
               <p id="reader-artist" class="text-sm sm:text-base text-gaucho-gold font-medium mt-1">
-                Baitaca
+                Os Monarcas
+              </p>
+              <p id="reader-album-banner" class="text-xs text-gaucho-creamMuted flex items-center gap-1.5 mt-2 bg-gaucho-charcoal px-3 py-1.5 rounded-lg border border-gaucho-border w-fit">
+                <i data-lucide="disc" class="w-3.5 h-3.5 text-gaucho-gold"></i>
+                Álbum Original: <strong id="reader-album-name" class="text-gaucho-cream">DVD 35 Anos Ao Vivo</strong>
               </p>
             </div>
 
@@ -257,7 +270,7 @@
                 <i data-lucide="star" class="w-5 h-5"></i>
               </button>
               <button onclick="app.openYouTubeModal()" class="px-3 py-2 rounded-xl border border-red-900/60 bg-red-950/40 text-red-400 hover:bg-red-900/40 text-xs font-bold flex items-center gap-1.5 transition-all">
-                <i data-lucide="youtube" class="w-4 h-4"></i> Videoaula / Ouvir
+                <i data-lucide="youtube" class="w-4 h-4"></i> YouTube Video
               </button>
               <a id="btn-spotify-link" href="#" target="_blank" class="px-3 py-2 rounded-xl border border-emerald-900/60 bg-emerald-950/40 text-emerald-400 hover:bg-emerald-900/40 text-xs font-bold flex items-center gap-1.5 transition-all">
                 <i data-lucide="music" class="w-4 h-4"></i> Spotify
@@ -274,7 +287,7 @@
               <i data-lucide="clock" class="w-3.5 h-3.5 text-gaucho-gold"></i> Tempo: <strong id="reader-bpm" class="text-gaucho-gold">128 BPM</strong>
             </span>
             <span class="bg-gaucho-wine/50 border border-gaucho-wine border-opacity-50 px-2.5 py-1 rounded-lg text-gaucho-cream font-medium flex items-center gap-1">
-              <i data-lucide="user" class="w-3.5 h-3.5 text-gaucho-gold"></i> Autor: <strong id="reader-composer" class="text-gaucho-cream">Baitaca</strong>
+              <i data-lucide="user" class="w-3.5 h-3.5 text-gaucho-gold"></i> Autor: <strong id="reader-composer" class="text-gaucho-cream">Gildinho / Os Monarcas</strong>
             </span>
             <span class="bg-gaucho-wine/50 border border-gaucho-wine border-opacity-50 px-2.5 py-1 rounded-lg text-gaucho-cream font-medium flex items-center gap-1">
               <i data-lucide="key" class="w-3.5 h-3.5 text-gaucho-gold"></i> Tom Original: <strong id="reader-original-key" class="text-gaucho-gold">G</strong>
@@ -313,7 +326,7 @@
           </div>
 
           <!-- Print Button -->
-          <button onclick="window.print()" class="p-2 rounded-lg bg-gaucho-wood hover:bg-gaucho-wine text-gaucho-cream text-xs font-medium flex items-center gap-1" title="Imprimir">
+          <button onclick="window.print()" class="p-2 rounded-lg bg-gaucho-wood hover:bg-gaucho-wine text-gaucho-cream text-xs font-medium flex items-center gap-1" title="Imprimir Cifra">
             <i data-lucide="printer" class="w-4 h-4"></i>
           </button>
         </div>
@@ -322,9 +335,9 @@
         <div class="bg-gradient-to-r from-gaucho-card via-gaucho-wineDark/80 to-gaucho-card border border-gaucho-gold/40 rounded-2xl p-5 shadow-xl space-y-3">
           <div class="flex items-center justify-between">
             <h3 class="font-cinzel text-base sm:text-lg font-bold text-gaucho-gold flex items-center gap-2">
-              <i data-lucide="music-2" class="w-5 h-5 text-gaucho-gold"></i> Solo da Introdução & Baixaria (Baixos Stradella)
+              <i data-lucide="music-2" class="w-5 h-5 text-gaucho-gold"></i> Guia da Baixaria Stradella & Solo de Entrada
             </h3>
-            <span class="text-[11px] bg-gaucho-gold/20 text-gaucho-gold border border-gaucho-gold/30 px-2 py-0.5 rounded font-mono">Arranjo de Gaita</span>
+            <span class="text-[11px] bg-gaucho-gold/20 text-gaucho-gold border border-gaucho-gold/30 px-2 py-0.5 rounded font-mono">Arranjo de Acordeão</span>
           </div>
           
           <div id="reader-baixaria-tab" class="bg-black/60 border border-gaucho-border rounded-xl p-4 font-mono text-xs sm:text-sm text-gaucho-cream leading-relaxed overflow-x-auto whitespace-pre">
@@ -335,7 +348,7 @@
         <!-- CIFRA DISPLAY CONTAINER -->
         <div class="bg-gaucho-card border border-gaucho-border rounded-2xl p-6 shadow-2xl space-y-4">
           <div class="flex items-center justify-between pb-3 border-b border-gaucho-border">
-            <span class="text-xs text-gaucho-creamMuted font-mono">Clique em qualquer cifra para destacar no teclado e baixaria 🪗</span>
+            <span class="text-xs text-gaucho-creamMuted font-mono">Clique em qualquer cifra para ver as teclas e baixos correspondentes 🪗</span>
             <span id="gaita-mode-badge" class="text-xs bg-gaucho-wine border border-gaucho-gold/30 text-gaucho-gold px-2.5 py-1 rounded-full font-bold">Modo: Gaita Piano</span>
           </div>
 
@@ -355,14 +368,14 @@
               <span class="text-[10px] text-gaucho-creamMuted uppercase tracking-widest font-bold">Acorde Selecionado</span>
               <h3 id="visualizer-chord-title" class="font-cinzel text-3xl font-black text-gaucho-gold">G</h3>
             </div>
-            <span id="visualizer-chord-type" class="text-xs bg-gaucho-wine text-gaucho-cream px-3 py-1 rounded-full border border-gaucho-gold/30 font-bold">Maior</span>
+            <span id="visualizer-chord-type" class="text-xs bg-gaucho-wine text-gaucho-cream px-3 py-1 rounded-full border border-gaucho-gold/30 font-bold">Sol Maior</span>
           </div>
 
           <!-- RIGHT HAND (TECLADO / BOTÕES) -->
           <div class="space-y-2">
             <div class="flex items-center justify-between">
               <h4 class="text-xs font-bold text-gaucho-cream uppercase tracking-wider flex items-center gap-1.5">
-                <i data-lucide="hand" class="w-4 h-4 text-gaucho-gold"></i> Mão Direita
+                <i data-lucide="hand" class="w-4 h-4 text-gaucho-gold"></i> Mão Direita (Teclado/Botão)
               </h4>
               <span id="right-hand-subtitle" class="text-[11px] text-gaucho-creamMuted">Gaita Piano</span>
             </div>
@@ -388,7 +401,7 @@
           <div class="space-y-2 pt-2 border-t border-gaucho-border">
             <div class="flex items-center justify-between">
               <h4 class="text-xs font-bold text-gaucho-cream uppercase tracking-wider flex items-center gap-1.5">
-                <i data-lucide="disc" class="w-4 h-4 text-gaucho-gold"></i> Baixaria (Mão Esquerda)
+                <i data-lucide="disc" class="w-4 h-4 text-gaucho-gold"></i> Mão Esquerda (Baixaria)
               </h4>
               <span class="text-[11px] text-gaucho-gold font-mono">Sistema Stradella</span>
             </div>
@@ -401,7 +414,7 @@
                 </div>
                 <div class="bg-gaucho-wood border border-gaucho-gold/30 p-2 rounded-lg">
                   <span class="text-[10px] text-gaucho-creamMuted block">Botão do Acorde</span>
-                  <strong id="bass-chord-button" class="text-sm text-gaucho-gold font-mono">G Maior (g)</strong>
+                  <strong id="bass-chord-button" class="text-sm text-gaucho-gold font-mono">g (Sol Maior)</strong>
                 </div>
               </div>
 
@@ -415,7 +428,7 @@
           <div class="bg-gaucho-wood/80 border border-gaucho-border rounded-xl p-3 space-y-2 text-xs">
             <div class="flex items-center justify-between">
               <span class="font-bold text-gaucho-gold flex items-center gap-1">
-                <i data-lucide="zap" class="w-3.5 h-3.5"></i> Ritmo da Música
+                <i data-lucide="zap" class="w-3.5 h-3.5"></i> Tempo da Música
               </span>
               <button onclick="app.playPresetRhythm()" class="text-gaucho-gold hover:underline font-bold flex items-center gap-1">
                 <i data-lucide="play" class="w-3 h-3"></i> Tocar Metrônomo
@@ -435,8 +448,8 @@
 
   </main>
 
-  <!-- MODALS SECTION -->
 
+  <!-- METRONOME MODAL -->
   <div id="metronome-modal" class="hidden fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4 no-print">
     <div class="bg-gaucho-card border-2 border-gaucho-gold rounded-2xl max-w-md w-full p-6 shadow-2xl space-y-6 relative">
       <button onclick="app.toggleMetronomeModal()" class="absolute right-4 top-4 text-gaucho-creamMuted hover:text-white">
@@ -445,9 +458,9 @@
 
       <div class="text-center space-y-1">
         <h3 class="font-cinzel text-2xl font-bold text-gaucho-gold flex items-center justify-center gap-2">
-          <i data-lucide="timer" class="w-6 h-6 text-gaucho-gold"></i> Metrônomo Gaúcho
+          <i data-lucide="timer" class="w-6 h-6 text-gaucho-gold"></i> Metrônomo Gaúcho & Tradicional
         </h3>
-        <p class="text-xs text-gaucho-creamMuted">Ajuste o tempo para treinar suas baixarias e solos</p>
+        <p class="text-xs text-gaucho-creamMuted">Ajuste a velocidade do fole e pratique o compasso exato</p>
       </div>
 
       <div class="text-center bg-gaucho-charcoal border border-gaucho-border rounded-2xl p-6 space-y-3">
@@ -471,7 +484,7 @@
       <div class="space-y-2">
         <label class="text-xs font-bold text-gaucho-creamMuted uppercase">Ritmos Tradicionais:</label>
         <div class="grid grid-cols-2 gap-2">
-          <button onclick="app.setMetroRhythm('Vaneira', 128)" class="p-2 rounded-lg bg-gaucho-wood hover:bg-gaucho-wine border border-gaucho-border text-left text-xs">
+          <button onclick="app.setMetroRhythm('Vaneirão', 128)" class="p-2 rounded-lg bg-gaucho-wood hover:bg-gaucho-wine border border-gaucho-border text-left text-xs">
             <span class="font-bold text-gaucho-gold block">Vaneirão</span>
             <span class="text-[10px] text-gaucho-creamMuted">2/4 - 128 BPM</span>
           </button>
@@ -497,6 +510,7 @@
     </div>
   </div>
 
+  <!-- EXTERNAL CHORD SEARCH MODAL -->
   <div id="external-modal" class="hidden fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4 no-print">
     <div class="bg-gaucho-card border-2 border-gaucho-gold rounded-2xl max-w-xl w-full p-6 shadow-2xl space-y-5 relative">
       <button onclick="app.closeExternalModal()" class="absolute right-4 top-4 text-gaucho-creamMuted hover:text-white">
@@ -505,10 +519,10 @@
 
       <div class="space-y-1">
         <h3 class="font-cinzel text-xl sm:text-2xl font-bold text-gaucho-gold flex items-center gap-2">
-          <i data-lucide="globe" class="w-6 h-6"></i> Localizador Externo de Cifras
+          <i data-lucide="globe" class="w-6 h-6"></i> Localizador de Cifras Originais Externas
         </h3>
         <p class="text-xs text-gaucho-creamMuted">
-          Pesquise qualquer música ou artista para abrir atalhos diretos de cifras e videoaulas no YouTube e Cifra Club.
+          Pesquise qualquer música ou artista para abrir atalhos diretos das cifras originais no Cifra Club, Ultimate Guitar, Google e Videoaulas de Acordeão no YouTube.
         </p>
       </div>
 
@@ -516,18 +530,19 @@
         <input 
           type="text" 
           id="ext-search-query" 
-          placeholder="Ex: Tordilho Negro, Milonga do Cordas, Luiz Gonzaga..." 
+          placeholder="Ex: Sonhando na Vaneira Os Monarcas, Porca Veia Lembranças, Tordilho Negro..." 
           class="w-full bg-gaucho-charcoal border border-gaucho-border focus:border-gaucho-gold rounded-xl px-4 py-3 text-sm text-gaucho-cream placeholder-gaucho-creamMuted outline-none"
           onkeyup="app.generateExternalLinks()"
         >
 
         <div id="ext-links-container" class="space-y-2 pt-2">
-          <p class="text-xs text-gaucho-creamMuted italic text-center">Digite o nome da música para gerar os atalhos...</p>
+          <p class="text-xs text-gaucho-creamMuted italic text-center">Digite o nome da música acima para gerar os atalhos diretos...</p>
         </div>
       </div>
     </div>
   </div>
 
+  <!-- CHORD DICTIONARY MODAL -->
   <div id="chord-dict-modal" class="hidden fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4 no-print">
     <div class="bg-gaucho-card border-2 border-gaucho-gold rounded-2xl max-w-2xl w-full p-6 shadow-2xl space-y-5 relative max-h-[90vh] overflow-y-auto">
       <button onclick="app.closeChordDict()" class="absolute right-4 top-4 text-gaucho-creamMuted hover:text-white">
@@ -538,7 +553,7 @@
         <h3 class="font-cinzel text-xl sm:text-2xl font-bold text-gaucho-gold flex items-center gap-2">
           <i data-lucide="book-open" class="w-6 h-6"></i> Dicionário de Acordes de Acordeão
         </h3>
-        <p class="text-xs text-gaucho-creamMuted">Escolha a nota fundamental e a qualidade do acorde</p>
+        <p class="text-xs text-gaucho-creamMuted">Escolha a nota fundamental e a qualidade do acorde para ver digitação e baixos</p>
       </div>
 
       <div class="space-y-2">
@@ -557,6 +572,7 @@
     </div>
   </div>
 
+  <!-- YOUTUBE PLAYER MODAL -->
   <div id="youtube-modal" class="hidden fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4 no-print">
     <div class="bg-gaucho-card border-2 border-gaucho-gold rounded-2xl max-w-3xl w-full p-6 shadow-2xl space-y-4 relative">
       <button onclick="app.closeYouTubeModal()" class="absolute right-4 top-4 text-gaucho-creamMuted hover:text-white z-10">
@@ -573,13 +589,14 @@
     </div>
   </div>
 
+  <!-- FOOTER -->
   <footer class="mt-auto border-t border-gaucho-border bg-gaucho-wineDark py-6 no-print">
     <div class="max-w-7xl mx-auto px-4 text-center space-y-2">
       <p class="font-cinzel text-sm font-bold text-gaucho-gold">
-        Gaitas Cifras Pro &copy; 2026 - Guia Completo para Acordeonistas
+        Gaitas Cifras Pro &copy; 2026 - O Guia Supremo para Acordeonistas
       </p>
       <p class="text-xs text-gaucho-creamMuted">
-        Desenvolvido para gaita piano e gaita ponto de 8 baixos. Cifras com acordes, baixarias Stradella e metrônomo tradicional.
+        Desenvolvido para gaita piano e gaita ponto de 8 baixos. Cifras com acordes, álbuns originais, baixarias Stradella e metrônomo nativista.
       </p>
     </div>
   </footer>
@@ -587,19 +604,244 @@
   <script>
     const SONGS_DATABASE = [
       {
+        id: 'sonhando-na-vaneira',
+        title: 'Sonhando na Vaneira',
+        artist: 'Os Monarcas',
+        album: 'DVD 35 Anos Ao Vivo',
+        composer: 'Gildinho / Os Monarcas',
+        rhythm: 'Vaneirão',
+        rhythmCategory: 'monarcas',
+        key: 'G',
+        bpm: 128,
+        youtubeId: '3A5sQWk9-Mo',
+        spotifyQuery: 'Os Monarcas Sonhando na Vaneira',
+        baixariaTab: `SOLO DE ENTRADA & BAIXARIA (Os Monarcas - Gaita Piano):
+[ G ] G - G - B - D | [ C ] C - E - G - E | [ D7 ] D - F# - A - C | [ G ] G - D - B - G
+Riff de Entrada nos Baixos: (Sol) -> (Ré) -> (Dó) -> (Sol)
+Fole: Balanço ritmado de Vaneirão bem sustentado no tempo 2/4.`,
+        cifraText: `[Intro]  G  C  D7  G  (2x)
+
+[Primeira Parte]
+  G
+Quando a gaita dos Monarcas chora forte na vanera
+                         D7
+Eu me lembro da sanfona e da doçura da ribeira
+                                               G
+Vou dançando pela noite com a prenda no salão
+                          D7                   G
+No ritmo fandangueiro que domina o coração!
+
+[Refrão]
+  G                     C
+É o sonho na vaneira, tchê!
+  D7                  G
+Que faz o povo cantar!
+  G                     C
+Puxa o fole, Gildinho guerreiro,
+  D7                     G
+Até o dia clarear!`
+      },
+
+      {
+        id: 'lembrancas',
+        title: 'Lembranças',
+        artist: 'Porca Véia',
+        album: 'Ao Vivo em Porto Alegre',
+        composer: 'Porca Véia',
+        rhythm: 'Vaneira',
+        rhythmCategory: 'porcaveia',
+        key: 'D',
+        bpm: 124,
+        youtubeId: 'Wz3kY1bX-J0',
+        spotifyQuery: 'Porca Veia Lembrancas',
+        baixariaTab: `BAIXARIA DE VANEIRA TRADICIONAL (Porca Véia - Tom: D):
+Baixo Fundamental: D (Ré) | Botão Acorde: d (Ré Maior)
+Padrão Rítmico Baixo: [ D ] D - d - D - d | [ A7 ] A - a7 - A - a7`,
+        cifraText: `[Intro]  D  A7  D  A7  D
+
+[Primeira Parte]
+  D
+Gaita de botão dobrada que me traz recordação
+                        A7
+Das noites de fandango lá no meu velharrazão
+                                           D
+Onde a poeira subia e o gaiteiro não parava
+                        A7                D
+E a noite inteira a gauchada fandangueava!
+
+[Refrão]
+  D                   A7
+Lembranças do meu passado,
+                     D
+Que o tempo não apagou!
+  D                   A7
+Com a gaita do Porca Véia,
+                      D
+O Rio Grande se alegrou!`
+      },
+
+      {
+        id: 'de-bota-e-bombacha',
+        title: 'De Bota e Bombacha',
+        artist: 'Grupo Cordiona',
+        album: 'Porca Véia & Grupo Cordiona',
+        composer: 'Porca Véia',
+        rhythm: 'Vaneirão',
+        rhythmCategory: 'porcaveia',
+        key: 'A',
+        bpm: 130,
+        youtubeId: 'bA4yN9Yx1X8',
+        spotifyQuery: 'Grupo Cordiona De Bota e Bombacha',
+        baixariaTab: `BAIXARIA CORDIONA (Tom: A):
+Baixo Fundamental: A (Lá) | Terça: C# (Dó Sustenido)
+Acompanhamento em A: A - A - C# - E | E7: E - E - G# - B`,
+        cifraText: `[Intro]  A  E7  A  E7  A
+
+[Primeira Parte]
+  A
+De bota e bombacha eu chego no baile
+                      E7
+Com o fole no peito pra balançar
+De gaita apertada e chapéu tapeado
+                        A
+Com a gauchada pronta pra dançar!
+
+[Refrão]
+  A                  E7
+É vanera, é fandango, tchê!
+                     A
+Gaita ponto a roncar!
+  A                  E7
+O Cordiona tá na sala,
+                      A
+Ninguém vai poder parar!`
+      },
+
+      {
+        id: 'gaitero-de-galpao',
+        title: 'Gaitero de Galpão',
+        artist: 'Os Serranos',
+        album: 'Os Serranos 40 Anos Ao Vivo',
+        composer: 'Edson Dutra',
+        rhythm: 'Vaneira',
+        rhythmCategory: 'serranos',
+        key: 'G',
+        bpm: 126,
+        youtubeId: '6lSgS9x0qD8',
+        spotifyQuery: 'Os Serranos Gaitero de Galpao',
+        baixariaTab: `SOLO DE GAITA DE GALPÃO (Edson Dutra - Tom: G):
+[ G ] G - B - D - G | [ C ] C - E - G - C | [ D7 ] D - F# - A - C
+Solo Teclado:
+G|--0-2-3-5-3-2-0---|--0-2-3-5-7-5-3---|`,
+        cifraText: `[Intro]  G  C  D7  G
+
+[Primeira Parte]
+  G
+Sou gaitero de galpão, criado na xucrice
+                        D7
+Respeitando a tradição que o meu velho disse
+Toco gaita de botão e gaita de pianinho
+                       G
+Com orgulho gaúcho no meu caminho!
+
+[Refrão]
+  G                   D7
+Puxa a gaita, meu amigo!
+                       G
+Serranos no coração!
+  G                   D7
+Tocando a vanera gaúcha,
+                      G
+Com garra e tradição!`
+      },
+
+      {
+        id: 'gritando-ensebo',
+        title: 'Gritando Ensebo',
+        artist: 'Grupo Rodeio',
+        album: 'Acervo Gaúcho - Ao Vivo',
+        composer: 'Luiz Carlos Borges / Grupo Rodeio',
+        rhythm: 'Chamamé',
+        rhythmCategory: 'rodeio',
+        key: 'Em',
+        bpm: 114,
+        youtubeId: 'Z9P9a_V2fUQ',
+        spotifyQuery: 'Grupo Rodeio Gritando Ensebo',
+        baixariaTab: `SOLO DE CHAMAMÉ NOS BAIXOS (Tom: Em):
+Baixos Stradella 6/8:
+Em: E (baixo) - em (acorde) - em | B7: B (baixo) - b7 (acorde) - b7`,
+        cifraText: `[Intro]  Em  B7  Em  B7  Em
+
+[Primeira Parte]
+  Em                  B7
+Chamamé que chora forte no fundo do meu galpão
+                     Em
+Gritando ensebo no fole da sanfona e do coração
+  E7                 Am
+A gauchada no salão dança sem ter cansaço
+  Em                 B7               Em
+E o gaitero firme no fole compasso por compasso!
+
+[Refrão]
+  G                 D7
+Grita ensebo meu gaitero!
+                    G
+Faz o chamamé chorar!
+  B7                Em
+É o Grupo Rodeio na sala,
+  B7                  Em
+Até o sol amanhecer!`
+      },
+
+      {
+        id: 'tordilho-negro',
+        title: 'Tordilho Negro',
+        artist: 'Os Caciques',
+        album: 'Os Caciques do Rio Grande',
+        composer: 'Teixeirinha',
+        rhythm: 'Milonga',
+        rhythmCategory: 'rodeio',
+        key: 'E',
+        bpm: 88,
+        youtubeId: 'u4O_5B19d70',
+        spotifyQuery: 'Os Caciques Tordilho Negro',
+        baixariaTab: `RITMO DE MILONGA NOS BAIXOS (2/4 lento - Tom: E):
+Baixo E: E - (pausa) - B - E | Baixo B7: B - (pausa) - F# - B`,
+        cifraText: `[Intro]  E  B7  E  B7  E
+
+[Primeira Parte]
+  E
+Comprei um tordilho negro pra meu cavalo de selar
+                         B7
+Caboclo de boa fibra não tem medo de arriscar
+                                       E
+E na garupa da noite a milonga vai soar!
+
+[Refrão]
+  E                B7
+Tordilho negro de guerra,
+                    E
+Meu companheiro de estrada!
+  E                  B7
+Pela tradição da terra,
+                      E
+Cantando pra gauchada!`
+      },
+
+      {
         id: 'do-fundo-da-grotinha',
         title: 'Do Fundo da Grotinha',
         artist: 'Baitaca',
+        album: 'A Origem do Galpão',
         composer: 'Baitaca',
         rhythm: 'Vaneirão',
-        rhythmCategory: 'gaucha',
+        rhythmCategory: 'vaneira',
         key: 'G',
         bpm: 128,
         youtubeId: 'Wz3kY1bX-J0',
         spotifyQuery: 'Baitaca Do Fundo da Grotinha',
-        baixariaTab: `INTRODUÇÃO DA BAIXARIA (Gaita Piano & 8 Baixos - Tom: G):
-[ G ] G - G - B - D | [ C ] C - E - G - E | [ D7 ] D - F# - A - C | [ G ] G - D - B - G
-Riff de Vaneira: (Sol) -> (Ré) -> (Dó) -> (Sol)`,
+        baixariaTab: `BAIXARIA BAITACA (Tom: G):
+[ G ] G - G - B - D | [ C ] C - E - G - E | [ D7 ] D - F# - A - C`,
         cifraText: `[Intro]  G  C  D7  G  (2x)
 
 [Primeira Parte]
@@ -615,87 +857,14 @@ Vendo o gaiteiro tocar com agrado!
   G                    D7
 É a vanera bem pesada, tchê!
                        G
-Onde a poeira rola solta!
-  G                    D7
-Puxa o fole, meu gaiteiro,
-                         G
-Que a gauchada dança louca!`
-      },
-
-      {
-        id: 'merceditas',
-        title: 'Merceditas',
-        artist: 'Os Serranos',
-        composer: 'Ramón Sixto Ríos',
-        rhythm: 'Chamamé',
-        rhythmCategory: 'gaucha',
-        key: 'Am',
-        bpm: 112,
-        youtubeId: 'bA4yN9Yx1X8',
-        spotifyQuery: 'Os Serranos Merceditas',
-        baixariaTab: `SOLO DE ENTRADA DO CHAMAMÉ (Tom: Am):
-Baixos: [ Am ] A - E - C - A | [ E7 ] E - B - G# - E
-Solo na Terça:
-A|--0-2-3-5-3-2-0---|--0-2-3-5-7-5-3---|
-E|--1-3-5-7-5-3-1---|--1-3-5-7-8-7-5---|`,
-        cifraText: `[Intro]  Am  E7  Am  E7  Am
-
-[Primeira Parte]
-  Am                  E7
-Dulce campiña verde que un día
-                     Am
-Entre el juncal junto al río
-                     E7
-Verte dichosa fue mi alegría
-                   Am
-Merceditas de mi amor
-
-[Refrão]
-   C                 G7
-Y así nació en mi guitarra
-                    C
-Esta triste melodía
-   E7                  Am
-Que hoy canto con nostalgia
-   E7                  Am
-Recordando aquel amor!`
-      },
-
-      {
-        id: 'querencia-amada',
-        title: 'Querência Amada',
-        artist: 'Teixeirinha',
-        composer: 'Teixeirinha',
-        rhythm: 'Vaneira Canção',
-        rhythmCategory: 'gaucha',
-        key: 'D',
-        bpm: 118,
-        youtubeId: '6lSgS9x0qD8',
-        spotifyQuery: 'Teixeirinha Querencia Amada',
-        baixariaTab: `BAIXARIA DE ACOMPANHAMENTO (Tom: D):
-[ D ] D - F# - A - D | [ A7 ] A - C# - E - G | [ D ] D - A - D`,
-        cifraText: `[Intro]  D  A7  D  A7  D
-
-[Primeira Parte]
-  D
-Quem quiser saber quem sou
-                       A7
-Olhe para o céu do meu Rio Grande
-E veja a lua prateada
-                       D
-Clareando a coxilha no distante
-
-[Refrão]
-  D               A7
-Querência amada, terra de luz!
-                        D
-É o meu Rio Grande que me conduz!`
+Onde a poeira rola solta!`
       },
 
       {
         id: 'asa-branca',
         title: 'Asa Branca',
         artist: 'Luiz Gonzaga',
+        album: 'O Duelo dos Sanfoneiros',
         composer: 'Luiz Gonzaga / Humberto Teixeira',
         rhythm: 'Baião',
         rhythmCategory: 'nacional',
@@ -721,7 +890,8 @@ Por que tamanha judiação!`
       {
         id: 'sous-le-ciel-de-paris',
         title: 'Sous le Ciel de Paris',
-        artist: 'Édith Piaf / Hubert Giraud',
+        artist: 'Édith Piaf / Acordeão Francês',
+        album: 'Paris Musette Vol. 1',
         composer: 'Hubert Giraud',
         rhythm: 'Valsa Musette',
         rhythmCategory: 'internacional',
@@ -746,32 +916,32 @@ Dans le cœur d'un garçon!`
     ];
 
     const CHORD_LIBRARY = {
-      'C':   { name: 'Dó Maior', keys: ['C4', 'E4', 'G4'], bass: 'C', bassChord: 'c (C Maior)', counter: 'E', pontoPush: '1, 3', pontoPull: '2, 4' },
-      'Cm':  { name: 'Dó Menor', keys: ['C4', 'Eb4', 'G4'], bass: 'C', bassChord: 'cm (C Menor)', counter: 'Eb', pontoPush: '1, 5', pontoPull: '2, 6' },
-      'C7':  { name: 'Dó com 7ª', keys: ['C4', 'E4', 'G4', 'Bb4'], bass: 'C', bassChord: 'c7 (C Sétima)', counter: 'E', pontoPush: '1, 3, 7', pontoPull: '2, 4, 8' },
+      'C':   { name: 'Dó Maior', keys: ['C4', 'E4', 'G4'], bass: 'C (Dó)', bassChord: 'c (C Maior)', counter: 'E (Mi)', pontoPush: '1, 3', pontoPull: '2, 4' },
+      'Cm':  { name: 'Dó Menor', keys: ['C4', 'Eb4', 'G4'], bass: 'C (Dó)', bassChord: 'cm (C Menor)', counter: 'Eb (Mi Bemol)', pontoPush: '1, 5', pontoPull: '2, 6' },
+      'C7':  { name: 'Dó com 7ª', keys: ['C4', 'E4', 'G4', 'Bb4'], bass: 'C (Dó)', bassChord: 'c7 (C Sétima)', counter: 'E (Mi)', pontoPush: '1, 3, 7', pontoPull: '2, 4, 8' },
       
-      'D':   { name: 'Ré Maior', keys: ['D4', 'F#4', 'A4'], bass: 'D', bassChord: 'd (D Maior)', counter: 'F#', pontoPush: '3, 5', pontoPull: '4, 6' },
-      'Dm':  { name: 'Ré Menor', keys: ['D4', 'F4', 'A4'], bass: 'D', bassChord: 'dm (D Menor)', counter: 'F', pontoPush: '3, 7', pontoPull: '4, 8' },
-      'D7':  { name: 'Ré com 7ª', keys: ['D4', 'F#4', 'A4', 'C5'], bass: 'D', bassChord: 'd7 (D Sétima)', counter: 'F#', pontoPush: '3, 5, 9', pontoPull: '4, 6, 10' },
+      'D':   { name: 'Ré Maior', keys: ['D4', 'F#4', 'A4'], bass: 'D (Ré)', bassChord: 'd (D Maior)', counter: 'F# (Fá#)', pontoPush: '3, 5', pontoPull: '4, 6' },
+      'Dm':  { name: 'Ré Menor', keys: ['D4', 'F4', 'A4'], bass: 'D (Ré)', bassChord: 'dm (D Menor)', counter: 'F (Fá)', pontoPush: '3, 7', pontoPull: '4, 8' },
+      'D7':  { name: 'Ré com 7ª', keys: ['D4', 'F#4', 'A4', 'C5'], bass: 'D (Ré)', bassChord: 'd7 (D Sétima)', counter: 'F# (Fá#)', pontoPush: '3, 5, 9', pontoPull: '4, 6, 10' },
 
-      'E':   { name: 'Mi Maior', keys: ['E4', 'G#4', 'B4'], bass: 'E', bassChord: 'e (E Maior)', counter: 'G#', pontoPush: '5, 7', pontoPull: '6, 8' },
-      'Em':  { name: 'Mi Menor', keys: ['E4', 'G4', 'B4'], bass: 'E', bassChord: 'em (E Menor)', counter: 'G', pontoPush: '5, 9', pontoPull: '6, 10' },
-      'E7':  { name: 'Mi com 7ª', keys: ['E4', 'G#4', 'B4', 'D5'], bass: 'E', bassChord: 'e7 (E Sétima)', counter: 'G#', pontoPush: '5, 7, 11', pontoPull: '6, 8, 12' },
+      'E':   { name: 'Mi Maior', keys: ['E4', 'G#4', 'B4'], bass: 'E (Mi)', bassChord: 'e (E Maior)', counter: 'G# (Sol#)', pontoPush: '5, 7', pontoPull: '6, 8' },
+      'Em':  { name: 'Mi Menor', keys: ['E4', 'G4', 'B4'], bass: 'E (Mi)', bassChord: 'em (E Menor)', counter: 'G (Sol)', pontoPush: '5, 9', pontoPull: '6, 10' },
+      'E7':  { name: 'Mi com 7ª', keys: ['E4', 'G#4', 'B4', 'D5'], bass: 'E (Mi)', bassChord: 'e7 (E Sétima)', counter: 'G# (Sol#)', pontoPush: '5, 7, 11', pontoPull: '6, 8, 12' },
 
-      'F':   { name: 'Fá Maior', keys: ['F4', 'A4', 'C5'], bass: 'F', bassChord: 'f (F Maior)', counter: 'A', pontoPush: '2, 4', pontoPull: '1, 3' },
-      'Fm':  { name: 'Fá Menor', keys: ['F4', 'Ab4', 'C5'], bass: 'F', bassChord: 'fm (F Menor)', counter: 'Ab', pontoPush: '2, 6', pontoPull: '1, 5' },
+      'F':   { name: 'Fá Maior', keys: ['F4', 'A4', 'C5'], bass: 'F (Fá)', bassChord: 'f (F Maior)', counter: 'A (Lá)', pontoPush: '2, 4', pontoPull: '1, 3' },
+      'Fm':  { name: 'Fá Menor', keys: ['F4', 'Ab4', 'C5'], bass: 'F (Fá)', bassChord: 'fm (F Menor)', counter: 'Ab (Lá Bemol)', pontoPush: '2, 6', pontoPull: '1, 5' },
 
-      'G':   { name: 'Sol Maior', keys: ['G4', 'B4', 'D5'], bass: 'G', bassChord: 'g (G Maior)', counter: 'B', pontoPush: '1, 3', pontoPull: '2, 5' },
-      'Gm':  { name: 'Sol Menor', keys: ['G4', 'Bb4', 'D5'], bass: 'G', bassChord: 'gm (G Menor)', counter: 'Bb', pontoPush: '1, 6', pontoPull: '2, 7' },
-      'G7':  { name: 'Sol com 7ª', keys: ['G4', 'B4', 'D5', 'F5'], bass: 'G', bassChord: 'g7 (G Sétima)', counter: 'B', pontoPush: '1, 3, 8', pontoPull: '2, 5, 9' },
+      'G':   { name: 'Sol Maior', keys: ['G4', 'B4', 'D5'], bass: 'G (Sol)', bassChord: 'g (G Maior)', counter: 'B (Si)', pontoPush: '1, 3', pontoPull: '2, 5' },
+      'Gm':  { name: 'Sol Menor', keys: ['G4', 'Bb4', 'D5'], bass: 'G (Sol)', bassChord: 'gm (G Menor)', counter: 'Bb (Si Bemol)', pontoPush: '1, 6', pontoPull: '2, 7' },
+      'G7':  { name: 'Sol com 7ª', keys: ['G4', 'B4', 'D5', 'F5'], bass: 'G (Sol)', bassChord: 'g7 (G Sétima)', counter: 'B (Si)', pontoPush: '1, 3, 8', pontoPull: '2, 5, 9' },
 
-      'A':   { name: 'Lá Maior', keys: ['A4', 'C#5', 'E5'], bass: 'A', bassChord: 'a (A Maior)', counter: 'C#', pontoPush: '2, 5', pontoPull: '3, 6' },
-      'Am':  { name: 'Lá Menor', keys: ['A4', 'C5', 'E5'], bass: 'A', bassChord: 'am (A Menor)', counter: 'C', pontoPush: '2, 7', pontoPull: '3, 8' },
-      'A7':  { name: 'Lá com 7ª', keys: ['A4', 'C#5', 'E5', 'G5'], bass: 'A', bassChord: 'a7 (A Sétima)', counter: 'C#', pontoPush: '2, 5, 10', pontoPull: '3, 6, 11' },
+      'A':   { name: 'Lá Maior', keys: ['A4', 'C#5', 'E5'], bass: 'A (Lá)', bassChord: 'a (A Maior)', counter: 'C# (Dó#)', pontoPush: '2, 5', pontoPull: '3, 6' },
+      'Am':  { name: 'Lá Menor', keys: ['A4', 'C5', 'E5'], bass: 'A (Lá)', bassChord: 'am (A Menor)', counter: 'C (Dó)', pontoPush: '2, 7', pontoPull: '3, 8' },
+      'A7':  { name: 'Lá com 7ª', keys: ['A4', 'C#5', 'E5', 'G5'], bass: 'A (Lá)', bassChord: 'a7 (A Sétima)', counter: 'C# (Dó#)', pontoPush: '2, 5, 10', pontoPull: '3, 6, 11' },
 
-      'B':   { name: 'Si Maior', keys: ['B4', 'D#5', 'F#5'], bass: 'B', bassChord: 'b (B Maior)', counter: 'D#', pontoPush: '4, 7', pontoPull: '5, 8' },
-      'Bm':  { name: 'Si Menor', keys: ['B4', 'D5', 'F#5'], bass: 'B', bassChord: 'bm (B Menor)', counter: 'D', pontoPush: '4, 9', pontoPull: '5, 10' },
-      'B7':  { name: 'Si com 7ª', keys: ['B4', 'D#5', 'F#5', 'A5'], bass: 'B', bassChord: 'b7 (B Sétima)', counter: 'D#', pontoPush: '4, 7, 12', pontoPull: '5, 8, 11' },
+      'B':   { name: 'Si Maior', keys: ['B4', 'D#5', 'F#5'], bass: 'B (Si)', bassChord: 'b (B Maior)', counter: 'D# (Ré#)', pontoPush: '4, 7', pontoPull: '5, 8' },
+      'Bm':  { name: 'Si Menor', keys: ['B4', 'D5', 'F#5'], bass: 'B (Si)', bassChord: 'bm (B Menor)', counter: 'D (Ré)', pontoPush: '4, 9', pontoPull: '5, 10' },
+      'B7':  { name: 'Si com 7ª', keys: ['B4', 'D#5', 'F#5', 'A5'], bass: 'B (Si)', bassChord: 'b7 (B Sétima)', counter: 'D# (Ré#)', pontoPush: '4, 7, 12', pontoPull: '5, 8, 11' },
     };
 
     const CHROMATIC_SCALE = ['C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B'];
@@ -871,20 +1041,29 @@ Dans le cœur d'un garçon!`
         let list = this.songs.filter(song => {
           if (this.currentCategory === 'favoritas') {
             if (!this.favorites.includes(song.id)) return false;
-          } else if (this.currentCategory === 'gaucha') {
-            if (song.rhythmCategory !== 'gaucha') return false;
+          } else if (this.currentCategory === 'monarcas') {
+            if (song.rhythmCategory !== 'monarcas') return false;
+          } else if (this.currentCategory === 'porcaveia') {
+            if (song.rhythmCategory !== 'porcaveia') return false;
+          } else if (this.currentCategory === 'serranos') {
+            if (song.rhythmCategory !== 'serranos') return false;
+          } else if (this.currentCategory === 'rodeio') {
+            if (song.rhythmCategory !== 'rodeio') return false;
+          } else if (this.currentCategory === 'vaneira') {
+            if (!song.rhythm.toLowerCase().includes('vaneira')) return false;
+          } else if (this.currentCategory === 'chamame') {
+            if (!song.rhythm.toLowerCase().includes('chamamé') && !song.rhythm.toLowerCase().includes('milonga')) return false;
           } else if (this.currentCategory === 'nacional') {
             if (song.rhythmCategory !== 'nacional') return false;
           } else if (this.currentCategory === 'internacional') {
             if (song.rhythmCategory !== 'internacional') return false;
-          } else if (this.currentCategory !== 'all') {
-            if (!song.rhythm.toLowerCase().includes(this.currentCategory)) return false;
           }
 
           if (this.searchQuery) {
             const q = this.searchQuery;
             return song.title.toLowerCase().includes(q) ||
                    song.artist.toLowerCase().includes(q) ||
+                   song.album.toLowerCase().includes(q) ||
                    song.rhythm.toLowerCase().includes(q) ||
                    song.key.toLowerCase().includes(q);
           }
@@ -896,7 +1075,7 @@ Dans le cœur d'un garçon!`
             <div class="col-span-full text-center py-12 bg-gaucho-card border border-gaucho-border rounded-2xl p-6">
               <i data-lucide="music-off" class="w-12 h-12 text-gaucho-gold mx-auto mb-3 opacity-60"></i>
               <h3 class="font-cinzel text-lg font-bold text-gaucho-cream">Nenhuma música encontrada</h3>
-              <p class="text-xs text-gaucho-creamMuted mt-1">Tente pesquisar com outros termos.</p>
+              <p class="text-xs text-gaucho-creamMuted mt-1">Tente pesquisar por artista, nome do álbum ou música.</p>
             </div>
           `;
           lucide.createIcons();
@@ -922,9 +1101,14 @@ Dans le cœur d'un garçon!`
               <h3 class="font-cinzel text-lg font-bold text-gaucho-cream group-hover:text-gaucho-gold transition-colors">
                 ${song.title}
               </h3>
-              <p class="text-xs text-gaucho-creamMuted font-medium mt-1">
+              <p class="text-xs text-gaucho-gold font-semibold mt-0.5">
                 ${song.artist}
               </p>
+              
+              <div class="mt-2 text-[11px] text-gaucho-creamMuted flex items-center gap-1 bg-black/30 px-2.5 py-1 rounded-lg border border-gaucho-border/60">
+                <i data-lucide="disc" class="w-3 h-3 text-gaucho-gold"></i>
+                <span class="truncate">Álbum: <strong>${song.album}</strong></span>
+              </div>
             </div>
 
             <div class="mt-4 pt-3 border-t border-gaucho-border/50 flex items-center justify-between">
@@ -957,6 +1141,7 @@ Dans le cœur d'un garçon!`
 
         document.getElementById('reader-title').innerText = this.currentSong.title;
         document.getElementById('reader-artist').innerText = this.currentSong.artist;
+        document.getElementById('reader-album-name').innerText = this.currentSong.album;
         document.getElementById('reader-rhythm').innerText = this.currentSong.rhythm;
         document.getElementById('reader-bpm').innerText = `${this.currentSong.bpm} BPM`;
         document.getElementById('reader-composer').innerText = this.currentSong.composer;
@@ -1305,13 +1490,23 @@ Dans le cœur d'un garçon!`
         container.innerHTML = `
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 pt-2">
             <a href="https://www.cifraclub.com.br/?q=${encoded}" target="_blank" class="p-3 bg-gaucho-wood hover:bg-gaucho-wine border border-gaucho-border rounded-xl flex items-center justify-between text-xs font-bold text-gaucho-cream transition-all">
-              <span>Buscar no <strong>Cifra Club</strong></span>
+              <span>Buscar Cifra Original no <strong>Cifra Club</strong></span>
               <i data-lucide="external-link" class="w-4 h-4 text-gaucho-gold"></i>
+            </a>
+
+            <a href="https://www.google.com/search?q=${encodedGaita}" target="_blank" class="p-3 bg-gaucho-wood hover:bg-gaucho-wine border border-gaucho-border rounded-xl flex items-center justify-between text-xs font-bold text-gaucho-cream transition-all">
+              <span>Pesquisar Cifra no <strong>Google Cifras</strong></span>
+              <i data-lucide="search" class="w-4 h-4 text-gaucho-gold"></i>
             </a>
 
             <a href="https://www.youtube.com/results?search_query=${encodedGaita}" target="_blank" class="p-3 bg-gaucho-wood hover:bg-gaucho-wine border border-gaucho-border rounded-xl flex items-center justify-between text-xs font-bold text-gaucho-cream transition-all">
               <span>Aulas de Gaita no <strong>YouTube</strong></span>
               <i data-lucide="youtube" class="w-4 h-4 text-red-500"></i>
+            </a>
+
+            <a href="https://www.ultimateguitar.com/search.php?title=${encoded}" target="_blank" class="p-3 bg-gaucho-wood hover:bg-gaucho-wine border border-gaucho-border rounded-xl flex items-center justify-between text-xs font-bold text-gaucho-cream transition-all">
+              <span>Fontes Internacionais no <strong>Ultimate Guitar</strong></span>
+              <i data-lucide="globe" class="w-4 h-4 text-gaucho-gold"></i>
             </a>
           </div>
         `;
@@ -1383,7 +1578,7 @@ Dans le cœur d'un garçon!`
         if (!this.currentSong) return;
         const modal = document.getElementById('youtube-modal');
         const iframe = document.getElementById('yt-iframe');
-        document.getElementById('yt-modal-title').innerText = `Videoaula / Performance: ${this.currentSong.title} - ${this.currentSong.artist}`;
+        document.getElementById('yt-modal-title').innerText = `Videoaula / Performance: ${this.currentSong.title} - ${this.currentSong.artist} (${this.currentSong.album})`;
         iframe.src = `https://www.youtube.com/embed/${this.currentSong.youtubeId}?autoplay=1`;
         modal.classList.remove('hidden');
       }
@@ -1403,4 +1598,4 @@ Dans le cœur d'un garçon!`
     };
   </script>
 </body>
-</html>
+</html
